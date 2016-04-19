@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{title}}</title>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel='stylesheet' href='/stylesheets/style.css'/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--[if lte IE 8]>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/grids-responsive-old-ie-min.css">
+    <![endif]-->
+    <!--[if gt IE 8]><!-->
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/grids-responsive-min.css">
+    <!--<![endif]-->
+</head>
+<body>
+{{#if error}}
+    <h1><i class="fa fa-circle" style="color:red;"></i> {{#if title}}{{title}}{{else}}{{ip}}:{{port}}{{/if}}</h1>
+    <p>That server isn't online :(</p>
+    {{else}}
+    <h1><i class="fa fa-circle" style="color:green;"></i> {{pong.cleanName}}</h1>
+    <table class="pure-table">
+        <tbody>
+        <tr>
+            <td>Current players</td>
+            <td>{{pong.currentPlayers}}</td>
+        </tr>
+        <tr>
+            <td>Max players</td>
+            <td>{{pong.maxPlayers}}</td>
+        </tr>
+
+        <tr>
+            <td>Version</td>
+            <td>{{pong.version}}</td>
+        </tr>
+
+        <tr>
+            <td>Game</td>
+            <td>{{pong.game}}</td>
+        </tr>
+
+        <tr>
+            <td>Advertise</td>
+            <td>{{pong.advertise}}</td>
+        </tr>
+        <tr>
+            <td><i>Developer stuff</i></td>
+        </tr>
+        <tr>
+            <td>Server ID</td>
+            <td>{{pong.serverId}}</td>
+        </tr>
+        <tr>
+            <td>Ping ID</td>
+            <td>{{pong.pingId}}</td>
+        </tr>
+        <tr>
+            <td>ACK ID</td>
+            <td>{{pong.ackId}}</td>
+        </tr>
+        </tbody>
+    </table>
+
+    <br>
+    <h3>Banner</h3>
+    <img src="/{{ip}}:{{port}}/banner">
+{{/if}}
+</body>
+</html>

@@ -1,0 +1,11 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+.copyright{
+  position: fixed;
+  bottom: 1em;
+}
+a{
+  text-decoration: none;
+}

@@ -28,6 +28,7 @@ app.use(require('express-session')({secret: 'keyboard cat', resave: true, saveUn
 app.use('/', require('./routes/index'));
 app.use('/faq', require('./routes/faq'));
 app.use('/generate', require('./routes/generate'));
+app.use('/admin', require('./routes/admin'));
 
 var banners = require('./routes/banners');
 app.use('/', banners);

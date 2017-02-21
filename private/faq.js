@@ -14,9 +14,5 @@ module.exports = [
     {
         question: "What changes have been made in this new fancy backend?",
         answer: "<ul><li>Switch from PHP to Node.JS</li><li>Switch from Query to Raknet ping</li><li>New URL format</li><li>Light caching system</li><li>Simpler banners</li><li>Redid design (much less complex)</li><li>Server detail pages and JSON API</li></ul>"
-    },
-    {
-        question: "How can you provide this service for free?",
-        answer: "We can't. The server is starting on a free Heroku dyno. If "
     }
 ];

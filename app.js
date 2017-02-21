@@ -5,6 +5,7 @@ var morgan = require('morgan');
 var logger = require("./utils/logger");
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+global.appRoot = path.resolve(__dirname);
 
 var app = express();
 logger.debug("Overriding 'Express' logger");

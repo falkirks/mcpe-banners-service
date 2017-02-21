@@ -1,0 +1,49 @@
+{
+  "image": "island.png",
+  "font": "font.ttf",
+  "text": [
+    {
+      "size": 13,
+      "x": 10,
+      "y": 50,
+      "color": "#ffffff",
+      "content": "{{hostname}}"
+    },
+    {
+      "size": 13,
+      "x": 10,
+      "y": 70,
+      "color": "#ffffff",
+      "content": "{{rinfo.port}}"
+    },
+    {
+      "size": 13,
+      "x": 10,
+      "y": 90,
+      "color": "#FF0000",
+      "content": "{{#if offline}}Offline{{/if}}"
+    },
+    {
+      "size": 23,
+      "x": 10,
+      "y": 30,
+      "color": "#00FFFF",
+      "content": "{{#if name}}{{cleanName}}{{else}}Untitled{{/if}}"
+    },
+    {
+      "size": 13,
+      "x": 10,
+      "y": 90,
+      "color": "#7FFF00",
+      "content": "{{#if online}}{{currentPlayers}}/{{maxPlayers}}{{/if}}"
+    },
+    {
+      "size": 10,
+      "x": 525,
+      "y": 90,
+      "color": "#0000FF",
+      "content": "b.mcpe.me"
+    }
+  ],
+  "outputFormat": "buffer"
+}

@@ -1,8 +1,42 @@
 var express = require('express');
-var fs = require('fs');
 var router = express.Router();
 var mcpeping = require('mcpe-ping');
 var mcpebanners = require('mcpe-banners');
+var fs = require('fs');
+
+function readFiles(dirname, onFileContent, onError) {
+    fs.readdir(dirname, function(err, filenames) {
+        if (err) {
+            onError(err);
+            return;
+        }
+        filenames.forEach(function(filename) {
+            fs.readFile(dirname + filename, 'utf-8', function(err, content) {
+                if (err) {
+                    onError(err);
+                    return;
+                }
+                onFileContent(filename, content);
+            });
+        });
+    });
+}
+
+var loadedStyles = {};
+readFiles(appRoot + '/private/styles/', function(filename, content) {
+    if(filename.indexOf('.json') != -1) {
+        var name = filename.replace('.json', '');
+        content = JSON.parse(content);
+        content.image = appRoot + '/private/styles/' + content.image;
+        content.font = appRoot + '/private/styles/' + content.font;
+        loadedStyles[name] = content;
+        console.log("Loaded " + name + " banner style.");
+        console.log(loadedStyles);
+    }
+
+}, function(err) {
+    throw err;
+});
 
 var CACHE_TTL = 10;
 
@@ -105,16 +139,19 @@ router.get('/:serverIP/json', function(req, res, next) {
     }
 });
 router.get('/:serverIP/banner', function(req, res, next) {
-    if(req.params.serverIP.indexOf(".") >= 0){
+    if(req.params.serverIP.indexOf(".") >= 0 || loadedStyles['default'] == null){
+        var styleId = req.query.style || 'default';
+        if(loadedStyles[styleId] == null){
+            styleId = 'default';
+        }
         var serverURI = req.params.serverIP.split(":");
         if(serverURI[1] == null) serverURI[1] = 19132;
-        mcpebanners(serverURI[0], serverURI[1], function (err, buffer) {
+        mcpebanners(serverURI[0], serverURI[1], loadedStyles[styleId], function (err, buffer) {
             if(err){
                 console.log(err);
             }
             res.writeHead(200, {'Content-Type': 'image/png' });
             res.end(buffer, 'binary');
-            fs.writeFileSync(__dirname + '/../out.png', buffer);
         });
     }
     else {

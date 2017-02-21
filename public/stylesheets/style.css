@@ -9,3 +9,6 @@ body {
 a{
   text-decoration: none;
 }
+.copy-code{
+  width: 400px;
+}

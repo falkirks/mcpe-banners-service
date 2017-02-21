@@ -17,7 +17,11 @@
 <h1>Generate</h1>
 <a href="/"><< back</a>
 <hr>
-<p>A banner generation interface is not available at this time. Try going to <code>/[server address]</code> for server details and <code>/[server address]/banner</code>.</p>
+<p>Enter your server URI (eg: play.example.com:19132) below.</p>
+<form onsubmit="return false;" class="pure-form">
+    <input type="text" id="serverUri">
+    <input type="submit" class="pure-button pure-button-primary" value="Generate" onclick="redirectToBanner()">
+</form>
 <ul>
     <li><a href="/sg.lbsg.net">Example server page</a></li>
     <li><a href="/sg.lbsg.net/banner">Example banner</a></li>
@@ -25,4 +29,9 @@
 </ul>
 <div class="copyright"><p>Made with <i class="fa fa-heart"></i> and <i class="fa fa-code"></i> by <a href="http://99leonchang.com">@99leonchang</a> and <a href="http://falkirks.com">@Falkirks</a></p></div>
 </body>
+<script>
+    var redirectToBanner = function(){
+        window.location.href = window.location.href.replace('generate', document.getElementById('serverUri').value);
+    };
+</script>
 </html>

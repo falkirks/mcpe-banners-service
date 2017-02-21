@@ -92,7 +92,7 @@ router.get('/:serverIP', function(req, res, next) {
                         error: err,
                         title: req.query.title
                     });
-                }, 2000);
+                }, 5000);
             }
             catch (e) {
                 next();
@@ -127,7 +127,7 @@ router.get('/:serverIP/json', function(req, res, next) {
                     pong.port = serverURI[1];
                     pong.title = req.query.title; // Is this needed?
                     res.jsonp(pong);
-                }, 2000);
+                }, 5000);
             }
             catch (e) {
                 next();
@@ -139,7 +139,7 @@ router.get('/:serverIP/json', function(req, res, next) {
     }
 });
 router.get('/:serverIP/banner', function(req, res, next) {
-    if(req.params.serverIP.indexOf(".") >= 0 || loadedStyles['default'] == null){
+    if(req.params.serverIP.indexOf(".") >= 0 && loadedStyles['default'] != null){
         var styleId = req.query.style || 'default';
         if(loadedStyles[styleId] == null){
             styleId = 'default';

@@ -7,7 +7,7 @@ var adminList = require('../private/admin-users');
 passport.use(new Strategy({
         consumerKey: process.env.CONSUMER_KEY,
         consumerSecret: process.env.CONSUMER_SECRET,
-        callbackURL: 'http://127.0.0.1:3000/admin/login/twitter/return'
+        callbackURL: 'https://mcpe-banners-2.herokuapp.com/admin/login/twitter/return'
     },
     function (token, tokenSecret, profile, cb) {
         if (adminList.indexOf(profile.username) >= 0) {

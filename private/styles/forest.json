@@ -1,46 +1,46 @@
 {
   "image": "forest.png",
-  "font": "font.ttf",
+  "font": "font.fnt",
   "text": [
     {
       "size": 13,
       "x": 10,
-      "y": 50,
+      "y": 40,
       "color": "#ffffff",
       "content": "{{hostname}}"
     },
     {
       "size": 13,
       "x": 10,
-      "y": 70,
+      "y": 60,
       "color": "#ffffff",
       "content": "{{rinfo.port}}"
     },
     {
       "size": 13,
       "x": 10,
-      "y": 90,
+      "y": 80,
       "color": "#FF0000",
       "content": "{{#if offline}}Offline{{/if}}"
     },
     {
       "size": 23,
       "x": 10,
-      "y": 30,
+      "y": 20,
       "color": "#FFFFFF",
       "content": "{{#if name}}{{cleanName}}{{else}}Untitled{{/if}}"
     },
     {
       "size": 13,
       "x": 10,
-      "y": 90,
+      "y": 80,
       "color": "#7FFF00",
       "content": "{{#if online}}{{currentPlayers}}/{{maxPlayers}}{{/if}}"
     },
     {
       "size": 10,
-      "x": 525,
-      "y": 90,
+      "x": 500,
+      "y": 80,
       "color": "#ffffff",
       "content": "b.mcpe.me"
     }

@@ -3,3 +3,4 @@ node_modules
 env.sh
 logs
 out.png
+.DS_Store

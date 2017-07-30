@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var mcpeping = require('mcpe-ping');
-var mcpebanners = require('mcpe-banners');
+var mcpebanners = require('mcpe-banners/jimp');
 var fs = require('fs');
 
 function readFiles(dirname, onFileContent, onError) {

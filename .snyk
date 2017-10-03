@@ -6,3 +6,6 @@ patch:
   'npm:ms:20170412':
     - mcpe-banners > gm > debug > ms:
         patched: '2017-08-15T04:45:19.051Z'
+  'npm:debug:20170905':
+    - mcpe-banners > gm > debug:
+        patched: '2017-10-03T03:25:04.270Z'
